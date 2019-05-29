@@ -31,10 +31,10 @@
   "license": "MIT",
   "peerDependencies": {
     "react": "*",
-    "react-native": "*",
-    "react-native-webview": "^5.10.0"
+    "react-native": "*"
   },
   "dependencies": {
-    "events": "^1.1.1"
+    "events": "^1.1.1",
+    "react-native-webview": "^5.10.0"
   }
 }
