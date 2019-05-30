@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 import React, { Component } from 'react';
-import { WebView as NativeWebView } from 'react-native';
+import { WebView as NativeWebView } from 'react-native-webview';
 import { RN_MESSAGES_CHANNEL_PREFIX } from './config';
 
 export class WebView extends Component {
@@ -19,18 +19,18 @@ export class WebView extends Component {
     );
   }
 
-  _refWebView = (webview) => {
+  _refWebView = webview => {
     this.webview = webview;
-  }
+  };
 
-  onMessage = (event) => {
+  onMessage = event => {
     const { data } = event.nativeEvent;
 
     if (data.indexOf(RN_MESSAGES_CHANNEL_PREFIX) !== 0) {
       return; // that's not something that was received from rn messages channel
     }
-    
-    // remove the unique identifier so that only the user's original message 
+
+    // remove the unique identifier so that only the user's original message
     // remains
     const jsonString = data.replace(RN_MESSAGES_CHANNEL_PREFIX, '');
 
@@ -48,7 +48,7 @@ export class WebView extends Component {
         this.messagesChannel.emit(parsedMsg.meta.eventName, parsedMsg.payload);
         break;
     }
-  }
+  };
 
   send(string) {
     this.webview.injectJavaScript(`(function (global) {
