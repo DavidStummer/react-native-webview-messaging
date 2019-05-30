@@ -55,7 +55,7 @@ export class WebView extends Component {
       global.RNMessagesChannel && global.RNMessagesChannel.emit('text', ${JSON.stringify(
         string
       )}, true);
-    })(window)`);
+    })(window); true`);
   }
 
   sendJSON(json) {
@@ -63,7 +63,7 @@ export class WebView extends Component {
       global.RNMessagesChannel && global.RNMessagesChannel.emit('json', ${JSON.stringify(
         json
       )}, true);
-    })(window)`);
+    })(window); true`);
   }
 
   emit(eventName, eventData) {
@@ -71,6 +71,6 @@ export class WebView extends Component {
       global.RNMessagesChannel && global.RNMessagesChannel.emit(${JSON.stringify(
         eventName
       )}, ${JSON.stringify(eventData)}, true);
-    })(window)`);
+    })(window); true`);
   }
 }
